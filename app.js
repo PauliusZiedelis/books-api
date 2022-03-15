@@ -36,7 +36,6 @@ function createHtmlElements(booksList, hasCategory) {
     newBook.appendChild(bookAuthor);
     const bookPrice = createBookPrice(book.price);
     newBook.appendChild(bookPrice);
-
     booksDiv.appendChild(newBook);
   });
 }
@@ -75,9 +74,7 @@ function createBookTitle(title) {
 
 function createBookCategory(category, hasCategory) {
   const bookCategory = document.createElement("p");
-  bookCategory.innerText = hasCategory
-    ? `Knygos žanras: ${category}`
-    : `Knygos žanras: Kraunasi...`;
+  bookCategory.innerText = hasCategory ? `Knygos žanras: ${category}` : `Knygos žanras: Kraunasi...`;
   return bookCategory;
 }
 
@@ -96,6 +93,6 @@ function createBookPrice(price) {
 function addBookCategoryLater(booksTypesList) {
   const booksList = document.querySelectorAll(".book");
   booksList.forEach((bookDOM) => {
-    bookDOM.childNodes[2].innerText = bookType(bookDOM.id, booksTypesList);
+    bookDOM.childNodes[2].innerText = `Knygos žanras: ${bookType(bookDOM.id, booksTypesList)}`;
   });
 }
